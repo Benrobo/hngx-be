@@ -4,6 +4,7 @@ import (
 	// "net/http"
 	//   "fmt"
 	"time"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -47,7 +48,7 @@ func handler(){
 			Current_Day: currentDayString,
 			Utc_Time: currentUTC,
 			Track: isTrackEmp(track),
-			Github_File_Url: "https://github.com/username/repo/blob/main/file_name.ext",
+			Github_File_Url: "https://github.com/Benrobo/hngx-be/blob/main/s-1/app.go",
 			Github_Repo_Url: "https://github.com/benrobo/hngx-be",
 			Status_Code: 200,
 		} 
