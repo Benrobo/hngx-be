@@ -23,7 +23,7 @@ type UserDetails struct {
 func handler(){
 	router := gin.Default()
 
-	router.GET("/user", func(c *gin.Context) {
+	router.GET("/api", func(c *gin.Context) {
 		slack_name := c.Query("slack_name")
 		track := c.Query("track")
 
