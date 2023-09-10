@@ -14,6 +14,14 @@ class PersonController extends BaseController {
       return;
     }
 
+    // check if person exists
+    const person = await Person.find({ name: identifier });
+
+    if (person.length > 0) {
+      this.error(res, "--person/user-already-exists", "User with this name already exists.", 400);
+      return;
+    }
+
     // Generate a unique ID for the user.
     const uId = this.uuid(20);
 

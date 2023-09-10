@@ -38,8 +38,8 @@ To get started with the API, follow these steps:
 2. Install the dependencies:
 
    ```bash
-   Downloads$ cd /hngx-be/s-2
-   s-2$ yarn
+   Downloads $ cd /hngx-be/s-2
+   s-2 $ yarn
    ```
 
 3. Start the API server:
@@ -51,6 +51,8 @@ To get started with the API, follow these steps:
    ```
 
 The API will now be running at `http://localhost:8080`. You can access the API endpoints as described below.
+
+> Note! this api relies on mongodb database, which means you need to have a mongodb cluster running on your pc before starting the api.
 
 ## API Endpoints
 
@@ -106,7 +108,7 @@ The API will now be running at `http://localhost:8080`. You can access the API e
 
 ### 3. Update a Person
 
-- **URL:** `/api/:userId`
+- **URL:** `/api/:userId?name=PersonUserName`
 - **Method:** `PUT`
 - **Response (Success):**
 
@@ -180,5 +182,3 @@ The source code for this API is available on GitHub: [Link to Repository](https:
 Feel free to explore the code and contribute to the project.
 
 Thank you for using our API! If you have any questions or encounter issues, please don't hesitate to reach out.
-
-Please replace `"http://localhost:3000"` with the actual base URL where your API is hosted in the "Getting Started" section. Additionally, replace the GitHub repository link in the "Repository" section with your actual repository URL.

@@ -6,6 +6,15 @@ const bodyParser = require("body-parser");
 const HandleErrors = require("./middlewares/error.js");
 const ENV = require("./config/env.js");
 const connectMongodb = require("./config/mongodb.js")
+const swaggerUi = require('swagger-ui-express');
+// const swaggerSpec = require('./config/swagger.js');
+const fs = require('fs');
+const YAML = require('yaml');
+const swaggerFile = require("./doc/swagger.js")
+
+
+// parse api documentation file.
+const swaggerDocument = YAML.parse(swaggerFile, 'utf8');
 
 class App {
   constructor() {
@@ -22,6 +31,7 @@ class App {
 
   initializeMiddlewares() {
     // initialize server middlewares
+
     this.app.use(
       cors({
         origin: ["http://127.0.0.1:3000", "http://localhost:3000", "*"],
@@ -30,6 +40,8 @@ class App {
     );
     this.app.use(bodyParser.json());
     this.app.use(bodyParser.urlencoded({ extended: false }));
+    // swagger api documentation
+    this.app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
   }
 
   listen() {
