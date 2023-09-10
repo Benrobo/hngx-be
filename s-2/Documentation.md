@@ -4,13 +4,14 @@ Welcome to the documentation for the My Node.js API. This API allows you to perf
 
 # UML Diagram
 
-#### Picture 1: shows the basic structure and overflow of the api.
+Picture 1: shows the basic structure and overflow of the api.
 
-<img src="https://raw.githubusercontent.com/Benrobo/hngx-be/main/s-2/md-assets/uml1.png" width="500">
+Picture 2: shows the request and response formats of each operation made.
 
-#### Picture 1: shows the request and response formats of each operation made.
-
-<img src="https://raw.githubusercontent.com/Benrobo/hngx-be/main/s-2/md-assets/uml2.png" width="500">
+<p align="center">
+<img src="https://raw.githubusercontent.com/Benrobo/hngx-be/main/s-2/md-assets/uml1.png" width="300">
+<img src="https://raw.githubusercontent.com/Benrobo/hngx-be/main/s-2/md-assets/uml2.png" width="300">
+</p>
 
 ## Table of Contents
 
