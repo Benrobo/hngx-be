@@ -169,15 +169,13 @@ You can use tools like `curl`, Postman, or any HTTP client library to interact w
 
 ## Testing the API
 
-You can run automated tests to verify the functionality of the API. The tests cover creating, retrieving, updating, and deleting persons. To run the tests, use the following command:
+The api is available to be tested using swagger link below:
 
-```bash
-npm test
-```
+[Swagger Test](https://hngx-be2.onrender.com/docs/)
 
 ## Repository
 
-The source code for this API is available on GitHub: [Link to Repository](https://github.com/yourusername/your-repo)
+The source code for this API is available on GitHub: [Link to Repository](https://github.com/benrobo/hngx-be/tree/main/s-2)
 
 Feel free to explore the code and contribute to the project.
 
