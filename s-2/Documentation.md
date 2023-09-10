@@ -23,7 +23,6 @@ Picture 2: shows the request and response formats of each operation made.
    - [Delete a Person](#4-delete-a-person)
 3. [Sample Requests and Responses](#sample-requests-and-responses)
 4. [Testing the API](#testing-the-api)
-5. [Repository](#repository)
 
 ## Getting Started
 
@@ -172,11 +171,3 @@ You can use tools like `curl`, Postman, or any HTTP client library to interact w
 The api is available to be tested using swagger link below:
 
 [Swagger Test](https://hngx-be2.onrender.com/docs/)
-
-## Repository
-
-The source code for this API is available on GitHub: [Link to Repository](https://github.com/benrobo/hngx-be/tree/main/s-2)
-
-Feel free to explore the code and contribute to the project.
-
-Thank you for using our API! If you have any questions or encounter issues, please don't hesitate to reach out.
