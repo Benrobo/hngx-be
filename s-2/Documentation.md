@@ -8,9 +8,9 @@ Picture 1: shows the basic structure and overflow of the api.
 
 Picture 2: shows the request and response formats of each operation made.
 
-<p align="center">
-<img src="https://raw.githubusercontent.com/Benrobo/hngx-be/main/s-2/md-assets/uml1.png" width="300">
-<img src="https://raw.githubusercontent.com/Benrobo/hngx-be/main/s-2/md-assets/uml2.png" width="300">
+<p align="left">
+<img src="https://raw.githubusercontent.com/Benrobo/hngx-be/main/s-2/md-assets/uml1.png" width="400">
+<img src="https://raw.githubusercontent.com/Benrobo/hngx-be/main/s-2/md-assets/uml2.png" width="400">
 </p>
 
 ## Table of Contents
