@@ -128,15 +128,12 @@ paths:
           description: The ID of the person to update
           schema:
             type: string
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
+        - in: query
+          name: name
+          required: true
+          description: The updated name value
+          schema:
+            type: string
       responses:
         '200':
           description: Person updated successfully
