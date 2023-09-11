@@ -162,10 +162,6 @@ The API will now be running at `http://localhost:8080`. You can access the API e
   }
   ```
 
-## Sample Requests and Responses
-
-You can use tools like `curl`, Postman, or any HTTP client library to interact with the API using the provided endpoints. Refer to the [API Endpoints](https://hngx-be2.onrender.com/api) section for details on each request and response.
-
 ## Testing the API
 
 The api is available to be tested using swagger link below:
