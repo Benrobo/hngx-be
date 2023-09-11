@@ -22,11 +22,15 @@ class PersonRoute {
     );
     this.router.put(
       `${this.path}:userId`,
-      useCatchErrors(this.personController.updateUser.bind(this.personController))
+      useCatchErrors(
+        this.personController.updateUser.bind(this.personController)
+      )
     );
     this.router.delete(
-      `${this.path}:userId`,
-      useCatchErrors(this.personController.deleteUser.bind(this.personController))
+      `${this.path}:identifier`,
+      useCatchErrors(
+        this.personController.deleteUser.bind(this.personController)
+      )
     );
   }
 }

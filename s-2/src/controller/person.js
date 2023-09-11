@@ -10,7 +10,12 @@ class PersonController extends BaseController {
     const identifier = req.params["name"];
 
     if (typeof identifier === "undefined") {
-      this.error(res, "--person/invalid-fields", "Expected a name but found none.", 400);
+      this.error(
+        res,
+        "--person/invalid-fields",
+        "Expected a name but found none.",
+        400
+      );
       return;
     }
 
@@ -18,7 +23,12 @@ class PersonController extends BaseController {
     const person = await Person.find({ name: identifier });
 
     if (person.length > 0) {
-      this.error(res, "--person/user-already-exists", "User with this name already exists.", 400);
+      this.error(
+        res,
+        "--person/user-already-exists",
+        "User with this name already exists.",
+        400
+      );
       return;
     }
 
@@ -28,13 +38,13 @@ class PersonController extends BaseController {
     // Create a new user with the provided name and generated ID.
     await Person.create({
       name: identifier,
-      id: uId
+      id: uId,
     });
 
     // Respond with a success message.
     this.success(res, "--person/success", "User created successfully", 200, {
       id: uId,
-      name: identifier
+      name: identifier,
     });
   }
 
@@ -49,10 +59,7 @@ class PersonController extends BaseController {
 
     // Find and return user details based on ID or name.
     const availableUser = await Person.findOne({
-      $or: [
-        { id: identifier },
-        { name: identifier },
-      ],
+      $or: [{ id: identifier }, { name: identifier }],
     });
 
     if (availableUser === null) {
@@ -63,7 +70,7 @@ class PersonController extends BaseController {
     // Respond with user details.
     this.success(res, "--person/success", "Success", 200, {
       id: availableUser.id,
-      name: availableUser.name
+      name: availableUser.name,
     });
   }
 
@@ -79,20 +86,27 @@ class PersonController extends BaseController {
 
     // Define the filter to find the user by their ID.
     const filter = {
-      $or: [
-        { id: userId },
-      ],
+      $or: [{ id: userId }],
     };
 
     // Update the user's name with the new name provided.
-    const updatedUser = await Person.findOneAndUpdate(filter, {
-      name: name
-    }, {
-      new: true, // Return the updated document
-    });
+    const updatedUser = await Person.findOneAndUpdate(
+      filter,
+      {
+        name: name,
+      },
+      {
+        new: true, // Return the updated document
+      }
+    );
 
     if (!updatedUser) {
-      this.error(res, "--person/user-notfound", "Failed to update: User doesn't exist.", 404);
+      this.error(
+        res,
+        "--person/user-notfound",
+        "Failed to update: User doesn't exist.",
+        404
+      );
       return;
     }
 
@@ -105,16 +119,16 @@ class PersonController extends BaseController {
 
   // Delete a user by their ID.
   async deleteUser(req, res) {
-    const userId = req.params["userId"];
+    const identifier = req.params["identifier"];
 
-    if (typeof userId === "undefined") {
+    if (typeof identifier === "undefined") {
       this.error(res, "--person/invalid-field", "Field is invalid.", 400);
       return;
     }
 
     // Find and delete the user by their ID.
     const deletedUser = await Person.findOneAndDelete({
-      id: userId
+      $or: [{ id: identifier }, { name: identifier }],
     });
 
     if (!deletedUser) {
@@ -123,7 +137,13 @@ class PersonController extends BaseController {
     }
 
     // Respond with a success message for user deletion.
-    this.success(res, "--person/success", "User deleted successfully", 200, null);
+    this.success(
+      res,
+      "--person/success",
+      "User deleted successfully",
+      200,
+      null
+    );
   }
 }
 
