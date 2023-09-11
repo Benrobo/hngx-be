@@ -3,8 +3,8 @@ const request = require("request");
 const API_URL = `https://hngx-be2.onrender.com/api`;
 
 test("should update a person info.", function (done) {
-  const updatedName = "Elon MUSK";
-  const userId = "<USER_ID>";
+  const updatedName = "Jeff Peterson-updated";
+  const userId = "778634057422807d6c6b";
   request.put(
     `${API_URL}/${userId}?name=${updatedName}`,
     (err, httpResponse, body) => {

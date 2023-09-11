@@ -167,3 +167,11 @@ The API will now be running at `http://localhost:8080`. You can access the API e
 The api is available to be tested using swagger link below:
 
 [Swagger Test](https://hngx-be2.onrender.com/docs/)
+
+It can aswell be tested using the automated testing script. simply run the command below:
+
+```
+yarn test
+# or
+npm run test
+```
