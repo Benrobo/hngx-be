@@ -7,7 +7,7 @@ info:
 paths:
   /api/{name}:
     post:
-      summary: Update a person by ID
+      summary: Create a person.
       parameters:
         - in: path
           name: name
