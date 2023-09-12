@@ -78,7 +78,6 @@ The API will now be running at `http://localhost:8080`. You can access the API e
 ### 2. Get a Person
 
 - **URL:** `/api/:userId`
-  > userId could either be **user id** or **username**
 - **Method:** `GET`
 - **Response (Success):**
 
