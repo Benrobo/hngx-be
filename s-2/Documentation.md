@@ -57,8 +57,9 @@ The API will now be running at `http://localhost:8080`. You can access the API e
 
 ### 1. Create a Person
 
-- **URL:** `/api/:Mark Essein`
+- **URL:** `/api`
 - **Method:** `POST`
+- **Body:** `{name: "Mark"}`
 - **Response:**
 
   ```json
@@ -76,8 +77,8 @@ The API will now be running at `http://localhost:8080`. You can access the API e
 
 ### 2. Get a Person
 
-- **URL:** `/api/:identifier`
-  > Identifier could either be **user id** or **username**
+- **URL:** `/api/:userId`
+  > userId could either be **user id** or **username**
 - **Method:** `GET`
 - **Response (Success):**
 
@@ -107,8 +108,9 @@ The API will now be running at `http://localhost:8080`. You can access the API e
 
 ### 3. Update a Person
 
-- **URL:** `/api/:userId?name=PersonUserName`
+- **URL:** `/api/:userId`
 - **Method:** `PUT`
+- **Body:** `{name: "updated-name"}`
 - **Response (Success):**
 
   ```json
