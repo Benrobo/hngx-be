@@ -7,9 +7,9 @@ class PersonController extends BaseController {
   }
 
   async addUser(req, res) {
-    const identifier = req.params["name"];
+    const payload = req.body;
 
-    if (typeof identifier === "undefined") {
+    if (typeof payload?.name === "undefined") {
       this.error(
         res,
         "--person/invalid-fields",
@@ -20,7 +20,8 @@ class PersonController extends BaseController {
     }
 
     // check if person exists
-    const person = await Person.find({ name: identifier });
+    const username = payload?.name;
+    const person = await Person.find({ name: username });
 
     if (person.length > 0) {
       this.error(
@@ -37,29 +38,29 @@ class PersonController extends BaseController {
 
     // Create a new user with the provided name and generated ID.
     await Person.create({
-      name: identifier,
+      name: username,
       id: uId,
     });
 
     // Respond with a success message.
     this.success(res, "--person/success", "User created successfully", 200, {
       id: uId,
-      name: identifier,
+      name: username,
     });
   }
 
   // Get user details by ID or name.
   async getUser(req, res) {
-    const identifier = req.params["identifier"];
+    const userId = req.params["userId"];
 
-    if (typeof identifier === "undefined") {
+    if (typeof userId === "undefined") {
       this.error(res, "--person/invalid-field", "Field is invalid.", 400);
       return;
     }
 
     // Find and return user details based on ID or name.
     const availableUser = await Person.findOne({
-      $or: [{ id: identifier }, { name: identifier }],
+      id: userId,
     });
 
     if (availableUser === null) {
@@ -77,23 +78,23 @@ class PersonController extends BaseController {
   // Update a user's name by their ID.
   async updateUser(req, res) {
     const userId = req.params["userId"];
-    const name = req.query["name"]; // New name provided in the query string ?name=username
+    const payload = req.body; // New name provided in the query string ?name=username
 
-    if (typeof userId === "undefined" || typeof name === "undefined") {
+    if (typeof userId === "undefined" || typeof payload?.name === "undefined") {
       this.error(res, "--person/invalid-field", "Field is invalid.", 400);
       return;
     }
 
     // Define the filter to find the user by their ID.
     const filter = {
-      $or: [{ id: userId }],
+      $or: [{ id: userId }, { name: payload?.name }],
     };
 
     // Update the user's name with the new name provided.
     const updatedUser = await Person.findOneAndUpdate(
       filter,
       {
-        name: name,
+        name: payload?.name,
       },
       {
         new: true, // Return the updated document
@@ -119,16 +120,16 @@ class PersonController extends BaseController {
 
   // Delete a user by their ID.
   async deleteUser(req, res) {
-    const identifier = req.params["identifier"];
+    const user_id = req.params["userId"];
 
-    if (typeof identifier === "undefined") {
+    if (typeof user_id === "undefined") {
       this.error(res, "--person/invalid-field", "Field is invalid.", 400);
       return;
     }
 
     // Find and delete the user by their ID.
     const deletedUser = await Person.findOneAndDelete({
-      $or: [{ id: identifier }, { name: identifier }],
+      id: user_id,
     });
 
     if (!deletedUser) {

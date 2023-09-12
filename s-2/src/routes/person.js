@@ -13,11 +13,11 @@ class PersonRoute {
 
   initializeRoutes() {
     this.router.post(
-      `${this.path}:name`,
+      `${this.path}`,
       useCatchErrors(this.personController.addUser.bind(this.personController))
     );
     this.router.get(
-      `${this.path}:identifier`,
+      `${this.path}:userId`,
       useCatchErrors(this.personController.getUser.bind(this.personController))
     );
     this.router.put(
@@ -27,7 +27,7 @@ class PersonRoute {
       )
     );
     this.router.delete(
-      `${this.path}:identifier`,
+      `${this.path}:userId`,
       useCatchErrors(
         this.personController.deleteUser.bind(this.personController)
       )
