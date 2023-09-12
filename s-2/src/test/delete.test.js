@@ -4,7 +4,7 @@ const API_URL = `https://hngx-be2.onrender.com/api`;
 // const API_URL = `http://localhost:8080/api`;
 
 test("should delete a person info.", function (done) {
-  const userId = "Jeff Peterson";
+  const userId = "userid";
   request.delete(`${API_URL}/${userId}`, (err, httpResponse, body) => {
     const res = JSON.parse(body);
     if (err) {
